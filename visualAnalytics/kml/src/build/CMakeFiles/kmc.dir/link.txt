@@ -1,0 +1,2 @@
+/usr/bin/ar cr libkmc.a  CMakeFiles/kmc.dir/kaimingCommon.cpp.o
+/usr/bin/ranlib libkmc.a

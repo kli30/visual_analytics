@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+        <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+        <title>Visual Analytics</title>
+
+        <style type="text/css">
+            <!--
+            P { color: #000000 }
+            A:link { color: #0000ff }
+            A:visited { color: #800080 }
+            -->
+        </style>
+    </head>
+
+
+    <script type="text/javascript">
+
+        function showHide(div){
+  
+            if(document.getElementById(div).style.display == 'none'){
+                document.getElementById(div).style.display = 'block';
+            }else{
+                document.getElementById(div).style.display = 'none'; 
+            }
+        }        
+
+    </script>
+    .
+
+    <body dir="LTR" lang="en-US" link="#0000ff" text="#000000" vlink="#800080">
+
+        <h2><p  align="CENTER">Visual Analytics of Brain Networks</p></h2>
+        
+        <img src="gui.png" alt="GUI" >  
+
+	<br>
+	<p>This is a demo of the visual analytic tool.</p>
+<video width="1200" height="800" controls autoplay muted>
+  <source src="toolkit.mp4" type="video/mp4">
+</video>
+
+        <p><a NAME="Abstract" href="#Abstract" onclick="showHide('div_Abstract');"><h2>Description</h2></a></p>
+        <div id="div_Abstract" style="display:block;">
+            <blockquote>
+                <p>
+                    Identification of regions of interest (ROIs) is a fundamental issue in brain network construction and analysis. 
+                    Recent studies demonstrate that multimodal neuroimaging approaches and 
+                    joint analysis strategies are crucial for accurate, reliable and individualized identification of brain ROIs. 
+                    In this paper, we present a novel approach of visual analytics and its open-source software for ROI definition and brain network construction.
+                    By combining neuroscience knowledge and computational intelligence capabilities, 
+                    visual analytics can generate accurate, reliable and individualized ROIs for brain networks 
+                    via joint modeling of multimodal neuroimaging data and an intuitive and real-time visual analytics interface. 
+                    Furthermore, it can be used as a functional ROI optimization and prediction solution when fMRI data is unavailable or inadequate. 
+                    We have applied this approach to an operation span working memory fMRI/DTI dataset, a schizophrenia DTI/resting state fMRI (R-fMRI) dataset, 
+                    and a mild cognitive impairment DTI/R-fMRI dataset, in order to demonstrate the effectiveness of visual analytics. 
+                    Our experimental results are encouraging.
+                </p>
+                <p><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=Visual%20analytics%20of%20brain%20networks">PubMed Link</a></p>
+            </blockquote>
+        </div>
+
+        <p><a NAME="toolkit" href="#toolkit" onclick="showHide('div_toolkit');"><h2>Software</h2></a></p>
+        <div id="div_toolkit" style="display:block;">
+            <blockquote>
+                <p><a NAME="download" href="#download" onclick="showHide('div_download');"><h3>Download</h3></a></p>
+                <div id="div_download" style="display:none;">
+                    <p ><a href="visualAnalyticTkt.tar.gz">Package</a>(includes Sample Data, 
+                        Binaries (64bits Ubuntu, 64bits Debian,64bits OpenSUSE, and Windows 7 Enterprise) and Source Code)</p>
+                </div>
+                <p><a NAME="license" href="#license" onclick="showHide('div_license');"><h3>License</h3></a></p>
+                <div id="div_license" style="display:none;">
+                    <p> This is free software distributed under GPL v3. See copyright information <a href="LICENSE">here</a>. 
+                        Please note that the source code refers to the src directory of the package, 
+                        and the software refers to the binaries under bin directory of the package. 
+                        All used third party software packages (including FSL, VTK, QT, GSL, and KML) are copyrighted by their original authors, 
+                        and are licensed according to their own licenses.
+                    </p>
+                </div>
+                <p><a NAME="documentation" href="#documentation" onclick="showHide('div_documentation');"><h3>Documentation</h3></a></p>
+                <div id="div_documentation" style="display:none;">
+                    <ul>
+                        <li><p> <a href="README">Compile from source</a></p></li>
+                        <li><p> <a href="http://www.youtube.com/watch?v=Wmj7R4GVl3M" target="_blank">Network Interaction</a></p></li>
+                        <li><p> <a href="http://www.youtube.com/watch?v=FGij7E7843U" target="_blank">ROI Definition</a></p></li>
+                    </ul>
+                </div>
+
+                <p><a NAME="citation" href="#citation" onclick="showHide('div_citation');"><h3>Citation</h3></a></p>
+                <div id="div_citation" style="display:none;">
+                    <p>Li K, Guo L, Faraco C, Zhu D, Chen H, Yuan Y, Lv J, Deng F, Jiang X, Zhang T, Hu X, Zhang D, Miller LS, Liu T. 
+                        Visual analytics of brain networks.Neuroimage. 2012 May 15;61(1):82-97. Epub 2012 Mar 5.</p> 
+                </div>
+
+            </blockquote>
+        </div>
+
+        <h2><a NAME="ConcactMe" href="#" onclick="showHide('div_contact')" >Contact me</a></h2>   
+        <div id="div_contact" style="display:none;">
+            <p>Email: <a href="mailto:kaiming.li@emory.edu">kaiming.li@emory.edu</a></p>
+        </div>
+
+
+
+
+    </body>
+</html>

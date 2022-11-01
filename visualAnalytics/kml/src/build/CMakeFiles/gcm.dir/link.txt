@@ -1,0 +1,2 @@
+/usr/bin/ar cr libgcm.a  CMakeFiles/gcm.dir/grangerCausality.cpp.o
+/usr/bin/ranlib libgcm.a

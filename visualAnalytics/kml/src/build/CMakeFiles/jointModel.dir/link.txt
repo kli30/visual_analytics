@@ -1,0 +1,2 @@
+/usr/bin/ar cr libjointModel.a  CMakeFiles/jointModel.dir/jointModel.cpp.o
+/usr/bin/ranlib libjointModel.a

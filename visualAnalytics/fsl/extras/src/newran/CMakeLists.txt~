@@ -1,0 +1,15 @@
+SET(NEWRAN_SOURCES
+extreal.cpp
+hist.cpp
+newran.cpp)
+INCLUDE_DIRECTORIES("${FSL_SOURCE_DIR}/extras/src/newmat")
+ADD_LIBRARY(newran STATIC ${NEWRAN_SOURCES})
+
+IF(FSL_BUILD)
+  INSTALL_FILES(/extras/include/newran .*//.h$)
+  INSTALL_TARGETS(/extras/lib newran)
+ENDIF(FSL_BUILD)
+
+install(DIRECTORY ./ DESTINATION ${FSL_SOURCE_DIR}/include/  FILES_MATCHING PATTERN "*.h")
+install(TARGETS newran DESTINATION ${FSL_SOURCE_DIR}/lib)
+  

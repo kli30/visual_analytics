@@ -1,0 +1,2 @@
+/usr/bin/ar cr libxtPCACCA.a  CMakeFiles/xtPCACCA.dir/pcacca.cpp.o
+/usr/bin/ranlib libxtPCACCA.a

@@ -1,0 +1,2 @@
+/usr/bin/ar cr libindexer.a  CMakeFiles/indexer.dir/indexer.cpp.o
+/usr/bin/ranlib libindexer.a

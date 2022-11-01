@@ -1,0 +1,13 @@
+ObjectType = Image
+NDims = 3
+BinaryData = True
+BinaryDataByteOrderMSB = False
+CompressedData = False
+TransformMatrix = 1 0 0 0 -0.988477 0.151374 0 0.151374 0.988477
+Offset = -126.531 78.744 -38.0866
+CenterOfRotation = 0 0 0
+AnatomicalOrientation = RPI
+ElementSpacing = 1 1 1
+DimSize = 256 256 120
+ElementType = MET_SHORT
+ElementDataFile = 10.3d.brain.dti.raw

@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>886</width>
+    <height>670</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
+     <widget class="SlidingStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="CUnit" name="profile1"/>
+      <widget class="CUnit" name="profile2"/>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>886</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionOpen_Surface"/>
+    <addaction name="actionOpen_Fiber"/>
+    <addaction name="actionOpen_Volume"/>
+    <addaction name="actionOpen_Bolds"/>
+    <addaction name="actionOpen_GM_Mask"/>
+    <addaction name="actionLoad_Profile"/>
+    <addaction name="actionSave_Profile"/>
+    <addaction name="actionSave_Profile_As"/>
+    <addaction name="separator"/>
+    <addaction name="action_Quit"/>
+   </widget>
+   <widget class="QMenu" name="menu_ROI">
+    <property name="title">
+     <string>&amp;ROI</string>
+    </property>
+    <addaction name="actionDefine_Now"/>
+    <addaction name="actionGenerate_Network"/>
+   </widget>
+   <widget class="QMenu" name="menu_Network">
+    <property name="title">
+     <string>&amp;Network</string>
+    </property>
+    <widget class="QMenu" name="menuNetwork_Type">
+     <property name="title">
+      <string>Network Type</string>
+     </property>
+     <addaction name="actionFunctional_Network"/>
+     <addaction name="actionEffective_Network"/>
+     <addaction name="actionStructrual_Network"/>
+     <addaction name="actionNone"/>
+    </widget>
+    <addaction name="actionLoad_Network"/>
+    <addaction name="actionSave_Network"/>
+    <addaction name="actionRemove_Network"/>
+    <addaction name="actionAdjust_ROIs"/>
+    <addaction name="menuNetwork_Type"/>
+    <addaction name="actionDock_Template"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionNextProfile"/>
+    <addaction name="actionPreviousProfile"/>
+    <addaction name="separator"/>
+    <addaction name="actionAdd_Sliding_Window"/>
+    <addaction name="actionClose_Current_Sliding_Window"/>
+    <addaction name="separator"/>
+    <addaction name="actionDisconnect_Camera"/>
+    <addaction name="actionAdjust_Surface_Opacity"/>
+    <addaction name="actionAdjust_Fiber_Opacity"/>
+    <addaction name="separator"/>
+    <addaction name="actionSwitch2T1"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>Animation</string>
+    </property>
+    <addaction name="actionWarpSlides"/>
+    <addaction name="actionVertical"/>
+    <addaction name="actionAdjust_Speed"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout_2">
+    <property name="title">
+     <string>About</string>
+    </property>
+   </widget>
+   <addaction name="menu_File"/>
+   <addaction name="menu_ROI"/>
+   <addaction name="menu_Network"/>
+   <addaction name="menuView"/>
+   <addaction name="menuAbout"/>
+   <addaction name="menuAbout_2"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOpen_Surface">
+   <property name="text">
+    <string>Open &amp;Surface</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionOpen_Fiber">
+   <property name="text">
+    <string>Open &amp;Fiber</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionOpen_Volume">
+   <property name="text">
+    <string>Open &amp;Volume</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="actionOpen_Bolds">
+   <property name="text">
+    <string>Open &amp;Bolds</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="action_Quit">
+   <property name="text">
+    <string>&amp;Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionLoad_From_File">
+   <property name="text">
+    <string>Load ROI From File</string>
+   </property>
+  </action>
+  <action name="actionDefine_Now">
+   <property name="text">
+    <string>Define ROI...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="actionPick_from_Surface">
+   <property name="text">
+    <string>Pick from Surface</string>
+   </property>
+  </action>
+  <action name="actionDraw_from_volume">
+   <property name="text">
+    <string>Draw from volume</string>
+   </property>
+  </action>
+  <action name="actionRecord2Default">
+   <property name="text">
+    <string>Record2Default</string>
+   </property>
+  </action>
+  <action name="actionCustumize_Record">
+   <property name="text">
+    <string>Custumize Record</string>
+   </property>
+  </action>
+  <action name="actionDisconnect_Camera">
+   <property name="text">
+    <string>Disconnect Camera</string>
+   </property>
+  </action>
+  <action name="actionLoad_Network">
+   <property name="text">
+    <string>Load &amp;Network</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionAdjust_ROIs">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Nodes Controller</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionLoad_Profile">
+   <property name="text">
+    <string>Load &amp;Profile</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionAdjust_Nodes">
+   <property name="text">
+    <string>Adjust Nodes</string>
+   </property>
+  </action>
+  <action name="actionAdd_a_node">
+   <property name="text">
+    <string>Add ROI to network..</string>
+   </property>
+  </action>
+  <action name="actionGenerate_Network">
+   <property name="text">
+    <string>Generate Network</string>
+   </property>
+  </action>
+  <action name="actionFunctional_Network">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Functional Network</string>
+   </property>
+  </action>
+  <action name="actionEffective_Network">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Effective Network</string>
+   </property>
+  </action>
+  <action name="actionSave_Network">
+   <property name="text">
+    <string>Save Network...</string>
+   </property>
+  </action>
+  <action name="actionNextProfile">
+   <property name="text">
+    <string>Next Window</string>
+   </property>
+   <property name="shortcut">
+    <string>Right</string>
+   </property>
+  </action>
+  <action name="actionPreviousProfile">
+   <property name="text">
+    <string>Previous Window</string>
+   </property>
+   <property name="shortcut">
+    <string>Left</string>
+   </property>
+  </action>
+  <action name="actionAdd_Profile">
+   <property name="text">
+    <string>Add Profile</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actionClose_Current_Profile">
+   <property name="text">
+    <string>Close Current Profile</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionAdd_Sliding_Window">
+   <property name="text">
+    <string>Add Window</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actionClose_Current_Sliding_Window">
+   <property name="text">
+    <string>Close Current Window</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="actionSave_Profile">
+   <property name="text">
+    <string>Save Profile</string>
+   </property>
+   <property name="shortcut">
+    <string>Meta+P</string>
+   </property>
+  </action>
+  <action name="actionSave_Profile_As">
+   <property name="text">
+    <string>Save Profile As...</string>
+   </property>
+  </action>
+  <action name="actionWarpSlides">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>WrapSlides</string>
+   </property>
+  </action>
+  <action name="actionVertical">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Vertical</string>
+   </property>
+  </action>
+  <action name="actionIncrease">
+   <property name="text">
+    <string>Increase</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+=</string>
+   </property>
+  </action>
+  <action name="actionDecrease">
+   <property name="text">
+    <string>Decrease</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
+   </property>
+  </action>
+  <action name="actionDock_Window">
+   <property name="text">
+    <string>Dock Window...</string>
+   </property>
+  </action>
+  <action name="actionAdjust_Speed">
+   <property name="text">
+    <string>Adjust Speed</string>
+   </property>
+  </action>
+  <action name="actionStructrual_Network">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Structrual Network</string>
+   </property>
+  </action>
+  <action name="actionNone">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>None</string>
+   </property>
+  </action>
+  <action name="actionRemove_Network">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Remove Current Network</string>
+   </property>
+  </action>
+  <action name="actionAdjust_Surface_Opacity">
+   <property name="text">
+    <string>Adjust Surface Opacity</string>
+   </property>
+  </action>
+  <action name="actionAdjust_Fiber_Opacity">
+   <property name="text">
+    <string>Adjust Fiber Opacity</string>
+   </property>
+  </action>
+  <action name="actionDock_Template">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Import Template</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="actionDisable_BOLDs">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Disable BOLDs</string>
+   </property>
+  </action>
+  <action name="actionOpen_GM_Mask">
+   <property name="text">
+    <string>Open GM Mask</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="actionSwitch2T1">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Switch2T1</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SlidingStackedWidget</class>
+   <extends>QStackedWidget</extends>
+   <header location="global">SlidingStackedWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CUnit</class>
+   <extends>QWidget</extends>
+   <header>unit.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

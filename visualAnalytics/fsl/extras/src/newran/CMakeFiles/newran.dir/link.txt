@@ -1,0 +1,2 @@
+/usr/bin/ar cr libnewran.a  CMakeFiles/newran.dir/extreal.o CMakeFiles/newran.dir/hist.o CMakeFiles/newran.dir/newran.o
+/usr/bin/ranlib libnewran.a

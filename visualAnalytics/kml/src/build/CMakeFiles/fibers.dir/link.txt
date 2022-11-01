@@ -1,0 +1,2 @@
+/usr/bin/ar cr libfibers.a  CMakeFiles/fibers.dir/fibers.cpp.o
+/usr/bin/ranlib libfibers.a

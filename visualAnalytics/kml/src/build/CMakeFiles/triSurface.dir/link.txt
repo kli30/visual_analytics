@@ -1,0 +1,2 @@
+/usr/bin/ar cr libtriSurface.a  CMakeFiles/triSurface.dir/triSurface.cpp.o
+/usr/bin/ranlib libtriSurface.a

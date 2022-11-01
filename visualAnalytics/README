@@ -1,0 +1,397 @@
+The package contains both binaries (for multiple OS including Ubuntu, Debian, OpenSUSE, and windows 7 enterprise) and source codes. 
+
+
+########################################################
+########################################################
+########################################################
+
+
+To compile from source codes. 
+
+Ubuntu (successfully compiled and tested on Ubuntu 11.10 with gcc 4.6)
+#########################################################
+Suppose the root directory for the package is /home/kaiming/programs/visualAnalytics, 
+and all third packages will installed under this directory. 
+Please change the directory accordingly for your own environmental settings. Add the following lines in ~/.profile, log out, and login. 
+
+export FSLOUTPUTTYPE=NIFTI_GZ
+export FSL_DIR=/home/kaiming/programs/visualAnalytics/fsl
+export VTK_DIR=/home/kaiming/programs/visualAnalytics/VTK/build
+export KML_DIR=/home/kaiming/programs/visualAnalytics/kml
+export GSL_DIR=/home/kaiming/programs/visualAnalytics/gsl
+
+
+Then do the followings. 
+
+1. QT (version 4.7.4)
+	sudo apt-get install qt4*
+2. VTK (version 5.8.0)
+	cd /home/kaiming/programs/visualAnalytics
+	#download the source codes at http://www.vtk.org/files/release/5.8/vtk-5.8.0.tar.gz
+	wget http://www.vtk.org/files/release/5.8/vtk-5.8.0.tar.gz  
+	tar -zxvf vtk-5.8.0.tar.g
+	# configure vtk using cmake, if haven't installed cmake, sudo apt-get install cmake*
+	mkdir -p /home/kaiming/programs/visualAnalytics/VTK/build
+	cd /home/kaiming/programs/visualAnalytics/VTK/build
+	ccmake ../		
+	#change the default options as follows: 
+	
+		VTK_USE_N_WAY_ARRAYS OFF
+		VTK_USE_QT ON
+		VTK_USE_N_WAY_ARRAYS OFF
+		VTK_USE_QT
+		VTK_USE_QVTK_QTOPENGL ON
+	make	
+	
+3. FSL
+	mkdir -p /home/kaiming/programs/visualAnalytics/fsl/build
+	cd /home/kaiming/programs/visualAnalytics/fsl/build
+	ccmake ../  #you need to set up the FSL_SOURCE_DIR,which is /home/kaiming/programs/visualAnalytics/fsl in this case;
+	make && make install 
+	
+4. GSL
+	mkdir -p /home/kaiming/programs/visualAnalytics/gsl
+	cd /home/kaiming/programs/visualAnalytics/gsl
+	wget http://mirrors.ustc.edu.cn/gnu/gsl/gsl-1.9.tar.gz
+	tar -zxvf gsl-1.9.tar.gz
+	cd gsl-1.9
+	./configure --prefix=/home/kaiming/programs/visualAnalytics/gsl
+	make && make install
+
+5. KML
+	mkdir -p /home/kaiming/programs/visualAnalytics/kml/build
+	cd /home/kaiming/programs/visualAnalytics/kml/build
+	ccmake ../src/
+	make && make install
+	
+6. Visual analytics
+	mkdir -p /home/kaiming/programs/visualAnalytics/build
+	cd /home/kaiming/programs/visualAnalytics/build
+	ccmake ../src/  
+	make && mv VisualAnalyticTkt ../bin
+
+the executable file VisualAnalyticTkt will be installed at /home/kaiming/programs/visualAnalytics/bin
+
+ 
+
+Debian (successfully compiled and tested on Debian 6.04, with gcc 4.4)
+#########################################################
+Suppose the root directory for the package is /home/kaiming/programs/visualAnalytics, 
+and all third packages will installed under this directory. 
+Please change the directory accordingly for your own environmental settings. Add the following lines in ~/.profile, log out, and login. 
+
+export FSLOUTPUTTYPE=NIFTI_GZ
+export FSL_DIR=/home/kaiming/programs/visualAnalytics/fsl
+export VTK_DIR=/home/kaiming/programs/visualAnalytics/VTK/build
+export KML_DIR=/home/kaiming/programs/visualAnalytics/kml
+export GSL_DIR=/home/kaiming/programs/visualAnalytics/gsl
+
+
+Then do the followings. 
+
+1. QT (version 4.7.4)
+	sudo apt-get install qt4*
+2. VTK (version 5.8.0)
+	cd /home/kaiming/programs/visualAnalytics
+	#download the source codes at http://www.vtk.org/files/release/5.8/vtk-5.8.0.tar.gz
+	wget http://www.vtk.org/files/release/5.8/vtk-5.8.0.tar.gz  
+	tar -zxvf vtk-5.8.0.tar.g
+	# configure vtk using cmake, if haven't installed cmake, sudo apt-get install cmake*
+	mkdir -p /home/kaiming/programs/visualAnalytics/VTK/build
+	cd /home/kaiming/programs/visualAnalytics/VTK/build
+	ccmake ../		
+	#change the default options as follows: 
+	
+		VTK_USE_N_WAY_ARRAYS OFF
+		VTK_USE_QT ON
+		VTK_USE_N_WAY_ARRAYS OFF
+		VTK_USE_QT
+		VTK_USE_QVTK_QTOPENGL ON
+	make	
+	
+3. FSL
+	mkdir -p /home/kaiming/programs/visualAnalytics/fsl/build
+	cd /home/kaiming/programs/visualAnalytics/fsl/build
+	ccmake ../  #you need to set up the FSL_SOURCE_DIR,which is /home/kaiming/programs/visualAnalytics/fsl in this case;
+	make && make install 
+	
+4. GSL
+	mkdir -p /home/kaiming/programs/visualAnalytics/gsl
+	cd /home/kaiming/programs/visualAnalytics/gsl
+	wget http://mirrors.ustc.edu.cn/gnu/gsl/gsl-1.9.tar.gz
+	tar -zxvf gsl-1.9.tar.gz
+	cd gsl-1.9
+	./configure --prefix=/home/kaiming/programs/visualAnalytics/gsl
+	make && make install
+
+5. KML
+	mkdir -p /home/kaiming/programs/visualAnalytics/kml/build
+	cd /home/kaiming/programs/visualAnalytics/kml/build
+	ccmake ../src/
+	make && make install
+	
+6. Visual analytics
+	mkdir -p /home/kaiming/programs/visualAnalytics/build
+	cd /home/kaiming/programs/visualAnalytics/build
+	ccmake ../src/  
+	make && mv VisualAnalyticTkt ../bin
+
+the executable file VisualAnalyticTkt will be installed at /home/kaiming/programs/visualAnalytics/bin
+
+
+
+OpenSUSE (successfully compiled and tested on OpenSUSE 12.1, with gcc 4.6)
+############################################################
+Suppose the root directory for the package is /home/kaiming/programs/visualAnalytics, 
+and all third packages will installed under this directory. 
+Please change the directory accordingly for your own environment. Add the following lines in ~/.profile, log out, and login. 
+
+export FSLOUTPUTTYPE=NIFTI_GZ
+export FSL_DIR=/home/kaiming/programs/visualAnalytics/fsl
+export VTK_DIR=/home/kaiming/programs/visualAnalytics/VTK/build
+export KML_DIR=/home/kaiming/programs/visualAnalytics/kml
+export GSL_DIR=/home/kaiming/programs/visualAnalytics/gsl
+
+
+Then do the followings. 
+
+1. QT (version 4.7.4)
+	sudo zypper install qt4*
+2. VTK (version 5.8.0)
+	cd /home/kaiming/programs/visualAnalytics
+	#download the source codes at http://www.vtk.org/files/release/5.8/vtk-5.8.0.tar.gz
+	wget http://www.vtk.org/files/release/5.8/vtk-5.8.0.tar.gz  
+	tar -zxvf vtk-5.8.0.tar.g
+	# configure vtk using cmake, if haven't installed cmake, sudo zypper install cmake cmake-gui
+	mkdir -p /home/kaiming/programs/visualAnalytics/VTK/build
+	cd /home/kaiming/programs/visualAnalytics/VTK/build
+	ccmake ../		
+	#change the default options as follows: 
+	
+		VTK_USE_N_WAY_ARRAYS OFF
+		VTK_USE_QT ON
+		VTK_USE_QVTK_QTOPENGL ON
+	make	
+	
+3. FSL
+	mkdir -p /home/kaiming/programs/visualAnalytics/fsl/build
+	cd /home/kaiming/programs/visualAnalytics/fsl/build
+	ccmake ../  #you need to set up the FSL_SOURCE_DIR,which is /home/kaiming/programs/visualAnalytics/fsl in this case;
+	make && make install 
+	
+4. GSL
+	mkdir -p /home/kaiming/programs/visualAnalytics/gsl
+	cd /home/kaiming/programs/visualAnalytics/gsl
+	wget http://mirrors.ustc.edu.cn/gnu/gsl/gsl-1.9.tar.gz
+	tar -zxvf gsl-1.9.tar.gz
+	cd gsl-1.9
+	./configure --prefix=/home/kaiming/programs/visualAnalytics/gsl
+	make && make install
+
+5. KML
+	mkdir -p /home/kaiming/programs/visualAnalytics/kml/build
+	cd /home/kaiming/programs/visualAnalytics/kml/build
+	ccmake ../src/
+	make && make install
+	
+6. Visual analytics
+	mkdir -p /home/kaiming/programs/visualAnalytics/build
+	cd /home/kaiming/programs/visualAnalytics/build
+	ccmake ../src/  
+	make &&  mv VisualAnalyticTkt ../bin
+
+The executable file VisualAnalyticTkt will be installed at /home/kaiming/programs/visualAnalytics/bin
+
+
+Microsoft windows (successfully compiled and tested on windows 7 enterprise using mingw with gcc 4.6)
+#####################################################################################################
+1. install mingw. see http://www.mingw.org/wiki/Getting_Started
+2. install qt for mingw. http://qt.nokia.com/downloads/windows-cpp
+3. install cmake. http://www.cmake.org/
+
+4. Suppose the root directory for the package is c:\visualAnalytics, and all third packages will be installed under this directory. 
+Please change the directory accordingly for your own environment. Add the following environment variables, log out, and login. 
+
+FSLOUTPUTTYPE=NIFTI_GZ
+FSL_DIR=C:\visualAnalytics\fsl
+VTK_DIR=C:\visualAnalytics\VTK\build
+KML_DIR=C:\visualAnalytics\kml
+GSL_DIR=C:\visualAnalytics\gsl
+
+
+Then do the followings. 
+
+5. VTK (version 5.8.0)
+	
+	download the source codes at http://www.vtk.org/files/release/5.8/vtk-5.8.0.tar.gz, and put it at  C:\visualAnalytics\
+	uncompress the package,
+	using cmake to configure the build using mingw, choose source directory (C:\visualAnalytics\VTK)
+	and build direcoty ( C:\visualAnalytics\VTK\build), and change the default options as follows: 
+	
+		VTK_USE_N_WAY_ARRAYS OFF
+		VTK_USE_QT ON
+		VTK_USE_QVTK_QTOPENGL ON
+	start cmd.exe, 	go to C:\visualAnalytics\VTK\build,and run mingw32-make	
+	
+3. FSL
+	
+	using cmake to configure the build using mingw, choose source directory (C:\visualAnalytics\fsl\) and build direcoty ( C:\visualAnalytics\fsl\build),
+	configure and generate. ( you need to set up the FSL_SOURCE_DIR,which is C:\visualAnalytics\fsl in this case)
+	start cmd.exe, 	go to C:\visualAnalytics\fsl\build,and run mingw32-make install	
+	
+4. GSL
+ 	download http://mirrors.ustc.edu.cn/gnu/gsl/gsl-1.9.tar.gz, put it at C:\visualAnalytics\gsl\, and uncompress it. 
+	start msys.bat (under mingw default installation: C:\MinGW\msys\1.0), and 
+	cd /c/visualAnalytics/gsl/gsl-1.9
+	./configure --prefix=/c/visualAnalytics/gsl/
+	make && make install
+
+5. KML
+	use cmake to configure the build using mingw, choose source directory (C:\visualAnalytics\kml\src) 
+	and build direcoty ( C:\visualAnalytics\kml\src\build),
+configure and generate. 
+	start cmd.exe, 	go to C:\visualAnalytics\kml\src,and run mingw32-make install	
+	
+6. Visual analytics
+
+	using cmake to configure the build using mingw, choose source directory (C:\visualAnalytics\src) and build direcoty ( C:\visualAnalytics\build),
+	configure and generate. 
+	start cmd.exe, 	go to C:\visualAnalytics\build, run mingw32-make, and put the executable file VisualAnalyticTkt.exe at C:\visualAnalytics\bin
+
+
+########################################################
+########################################################
+########################################################
+
+To run the binaries and test the sample data. (You may need to install qt first, see the following part for details.)
+
+1. Please set the environment variable FSLOUTPUTTYPE=NIFTI_GZ. Log out to make it work. 
+	If you meet such runtime error as :
+	"terminate called after throwing an instance of 'std::logic_error'  what():  basic_string::_S_construct null not valid" 
+	the most possible cause is that variable is not set. 
+2. Navigate to directory /home/kaiming/programs/visualAnalytics/bin or C:\visualAnalytics\bin on windows, 
+	start a terminal in current directory, and run corresponding executable file according to your os.  
+3. Load profile p1.prf from the sampleData directory (shortcut: ctrl+p, choose p1.prf at sampleData directory. this will take a while.). 
+4. You can interact with the network after loading completes. 
+	a. choose a node in the top-left sub-window (surface window) by moving the mouse cursor to the node, and then press 'p'. 
+		The chosen node will be highlighted with a red box. Press 's' to reset the choose, and re-choose the previous chosen node if you need. 
+	b. two ways to modify the node. i) move the cursor to your destination location on the surface while pressing 'ctrl'. 
+		The multimodal information for this node will be updated dynamically with the mouse movement. 
+		ii)using the node controller (ctrl+c) for fine control of all nodes.
+5. Add another subject by adding a window first (ctrl+a), and then load the profile p2.prf by ctrl+p. 
+	Then, you can interact with the network of this new subject. And you can switch among subjects by left key '<-' or right key '->'.  
+6. Set up a template for reference by ctrl+t. 
+	the red number in the top-right sub-window shows the similarity of fiber bundles between the subject and the model. 
+
+NOTE: the binaries in bin directory are different gcc versions. Debian: 4.4; Ubuntu: 4.6; OpenSUSE: 4.6; Mingw: 4.6. 
+If you have gcc compatibility issues, e.g., (/usr/lib/libstdc++.so.6: version `GLIBCXX_3.4.15' not found), 
+please make sure the gcc version on your system meets the requirement.
+
+
+
+########################################################
+########################################################
+########################################################
+Format of the profile. 
+
+
+A profile is a file that specifies the dataset and options for a certain subject to be studied. A complete example was shown as follows: 
+
+///////////// profile starts
+
+SURFACE sampleData/10.wavelet.5.vtk
+FIBERS sampleData/10.fiber.vtk
+DTIB0 sampleData/10.b0.mhd
+BOLDS sampleData/10.func2dti.lowres.nii.gz
+DTIGM sampleData/10.dti.gm.nii.gz
+NETWORK FunctionalConnectivity
+COORDINATES 16
+LInsula 25.5374 226.655 2.27562
+LMFG 32.722 242.317 30.1059
+LOciPole 15.4873 120.937 12.3599
+LPCingular 1.59471 227.542 41.2158
+LPCentalG 28.7616 218.013 29.6281
+LPrecunus 7.28086 137.836 52.5744
+LSFG 29.0945 210.113 56.2146
+LIPLobule 43.609 171.52 48.6567
+LDLPFG -38.3332 252.751 14.0187
+RInsula -30.3146 230.443 2.04038
+RLOG -28.3185 151.559 49.1179
+RPCingular -12.7988 225.732 41.5891
+RPCentalG -42.8196 215.889 22.8094
+RPrecunus -9.19775 143.761 54.4394
+RSFG -26.461 217.345 57.3096
+RIPLobule -49.017 179.266 43.2535
+EDGES  CALCULATED
+0 0.415987 0.495347 0.6058 0.491168 0.456726 0.535144 0.579469 0.649824 0.800511 0.497977 0.651652 0.644169 0.604867 0.637535 0.598768 
+0.415987 0 0.676715 0.732698 0.760294 0.450281 0.322513 0.781016 0.706559 0.373656 0.740244 0.760264 0.57335 0.503359 0.509179 0.655942 
+0.495347 0.676715 0 0.762552 0.801565 0.73835 0.467923 0.786288 0.730675 0.504408 0.693301 0.775986 0.69211 0.710083 0.486299 0.567946 
+0.6058 0.732698 0.762552 0 0.868087 0.554096 0.550981 0.809763 0.830269 0.619635 0.774558 0.952875 0.763508 0.69446 0.723232 0.715096 
+0.491168 0.760294 0.801565 0.868087 0 0.468565 0.448177 0.86162 0.775406 0.495355 0.841039 0.843054 0.802337 0.60822 0.664174 0.703036 
+0.456726 0.450281 0.73835 0.554096 0.468565 0 0.472911 0.501446 0.510927 0.491542 0.414979 0.589529 0.453704 0.841935 0.385755 0.315124 
+0.535144 0.322513 0.467923 0.550981 0.448177 0.472911 0 0.513523 0.583424 0.496026 0.48362 0.56165 0.51504 0.60664 0.615685 0.482171 
+0.579469 0.781016 0.786288 0.809763 0.86162 0.501446 0.513523 0 0.802705 0.5336 0.854891 0.827341 0.709543 0.651071 0.710526 0.802697 
+0.649824 0.706559 0.730675 0.830269 0.775406 0.510927 0.583424 0.802705 0 0.603707 0.860808 0.875229 0.768066 0.699808 0.750689 0.82638 
+0.800511 0.373656 0.504408 0.619635 0.495355 0.491542 0.496026 0.5336 0.603707 0 0.455624 0.642919 0.581031 0.591936 0.604308 0.504025 
+0.497977 0.740244 0.693301 0.774558 0.841039 0.414979 0.48362 0.854891 0.860808 0.455624 0 0.794235 0.740484 0.653413 0.706092 0.883528 
+0.651652 0.760264 0.775986 0.952875 0.843054 0.589529 0.56165 0.827341 0.875229 0.642919 0.794235 0 0.766 0.703613 0.727657 0.743627 
+0.644169 0.57335 0.69211 0.763508 0.802337 0.453704 0.51504 0.709543 0.768066 0.581031 0.740484 0.766 0 0.613967 0.662208 0.67088 
+0.604867 0.503359 0.710083 0.69446 0.60822 0.841935 0.60664 0.651071 0.699808 0.591936 0.653413 0.703613 0.613967 0 0.630405 0.58314 
+0.637535 0.509179 0.486299 0.723232 0.664174 0.385755 0.615685 0.710526 0.750689 0.604308 0.706092 0.727657 0.662208 0.630405 0 0.731136 
+0.598768 0.655942 0.567946 0.715096 0.703036 0.315124 0.482171 0.802697 0.82638 0.504025 0.883528 0.743627 0.67088 0.58314 0.731136 0 
+
+////////////  profile ends
+
+
+The first five lines are necessary for a profile:  
+
+SURFACE sampleData/10.wavelet.5.vtk
+FIBERS sampleData/10.fiber.vtk
+DTIB0 sampleData/10.b0.mhd
+BOLDS sampleData/10.func2dti.lowres.nii.gz
+DTIGM sampleData/10.dti.gm.nii.gz
+
+which specify the cortical surface, fiber bundles, dti b0 image, fmri and gray matter mask respectively. 
+each line is a pair of keyword and value, e.g., "SURFACE sampleData/10.wavelet.5.vtk" indicates the location of the cortical surface. 
+Note: it's better to use the full directory for the location. 
+
+
+the rest of the profile is for network specifications. 
+
+NETWORK keyword shows the type of brain network supported.
+it can be one of the following FunctionalConnectivity, EffectiveConnectivity,and StructrualConnectivity.
+
+the following section defines ROIs of the network:
+
+COORDINATES 16
+LInsula 25.5374 226.655 2.27562
+LMFG 32.722 242.317 30.1059
+LOciPole 15.4873 120.937 12.3599
+LPCingular 1.59471 227.542 41.2158
+LPCentalG 28.7616 218.013 29.6281
+LPrecunus 7.28086 137.836 52.5744
+LSFG 29.0945 210.113 56.2146
+LIPLobule 43.609 171.52 48.6567
+LDLPFG -38.3332 252.751 14.0187
+RInsula -30.3146 230.443 2.04038
+RLOG -28.3185 151.559 49.1179
+RPCingular -12.7988 225.732 41.5891
+RPCentalG -42.8196 215.889 22.8094
+RPrecunus -9.19775 143.761 54.4394
+RSFG -26.461 217.345 57.3096
+RIPLobule -49.017 179.266 43.2535
+
+the first line shows which type of the ROIs and how many ROIs are in the network, 
+e.g.,"COORDINATES 16" means the rois are defined by world coordinates, and there are 16 of them. 
+ROI definition types can be one of COORDINATES, VOLUMES (3d volume files),SURFACEIDS(the index of the cortical surface for the ROI).
+"LInsula 25.5374 226.655 2.27562" is a specific ROI item with ROI name first (one word) and then x,y,z coordinates if the ROI is specified by COORDINATES.
+
+ 
+The next section records the weight of the network edge. 
+it can be pearson correlation if the network is functional connectivity network, or granger causality strength if the network is effective connectivity. 
+it can also be nothing if keyword EDGES has the value of NOTCALCULATED. 
+
+
+
+
+

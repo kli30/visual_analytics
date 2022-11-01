@@ -1,0 +1,2 @@
+/usr/bin/ar cr libtraceMap.a  CMakeFiles/traceMap.dir/traceMap.cpp.o
+/usr/bin/ranlib libtraceMap.a

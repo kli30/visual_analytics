@@ -1,0 +1,2 @@
+/usr/bin/ar cr libcolorScheme.a  CMakeFiles/colorScheme.dir/colorScheme.cpp.o
+/usr/bin/ranlib libcolorScheme.a

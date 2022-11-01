@@ -1,0 +1,4 @@
+ADD_LIBRARY(niftiio nifti1_io.c)
+
+install(DIRECTORY ./ DESTINATION ${FSL_SOURCE_DIR}/include/  FILES_MATCHING PATTERN "*.h")
+install(TARGETS niftiio DESTINATION ${FSL_SOURCE_DIR}/lib)
